@@ -1,16 +1,44 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../component/header/Navbar";
+import Side from "../component/header/Side";
+import { useState } from "react";
+import Box from "@mui/material/Box";
 
-//우리가 만드는 앱의 전체 화면 구조를 잡는 역할.. 
+const drawerWidth = 220;
+
 const Layout = () => {
-    return (
-        <>
-            <Navbar/>
-            {/* router 에 의해 결정된 화면을 출력하는 위치... */}
-            <div className="form-box">
-            <Outlet />
-            </div>
-        </>
-    )
-}
-export default Layout
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Box sx={{ display: "flex", height: "100vh", overflow: "hidden" }}>
+      {/* 사이드바 */}
+      <Side open={open} setOpen={setOpen} />
+
+      {/* 오른쪽 메인 영역: 상단 네비바 + 컨텐츠 */}
+      <Box
+  sx={{
+    flexGrow: 1,
+    display: "flex",
+    flexDirection: "column",
+    marginLeft: open ? `${drawerWidth}px` : 0,
+    width: open ? `calc(100% - ${drawerWidth}px)` : "100%",
+  }}
+>
+  <Navbar open={open} setOpen={setOpen} />
+
+  <Box
+    component="main"
+    sx={{
+      flexGrow: 1,
+      overflowY: "auto",
+      p: 3,
+    }}
+  >
+    <Outlet />
+  </Box>
+</Box>
+    </Box>
+  );
+};
+
+export default Layout;

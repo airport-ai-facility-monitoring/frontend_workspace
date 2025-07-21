@@ -30,24 +30,23 @@ const navItems = [
   { text: "Daily Log", icon: <DescriptionIcon />, selected: false },
 ];
 
-const Side = (props) => {
+const Side = ({ open, setOpen }) => {
   return (
     <Drawer
-        variant="temporary"       // temporary로 바꿔서 임시 열림 상태로 변경
-        open={open}               // 상태에 따라 열림 여부 결정
-        onClose={toggleDrawer}    // 외부 클릭 시 닫힘 처리
+  variant="persistent"
+  open={open}
+  sx={{
+    flexShrink: 0,
+    "& .MuiDrawer-paper": {
+      width: open ? drawerWidth : 0,
+      boxSizing: "border-box",
+      bgcolor: "#1f263d",
+      color: "white",
+      overflowX: "hidden",
+    },
+  }}
+>
 
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        [`& .MuiDrawer-paper`]: {
-          width: drawerWidth,
-          boxSizing: "border-box",
-          bgcolor: "#1f263d",
-          color: "white",
-        },
-      }}
-    >
       <Box sx={{ p: 2, height: 70, display: "flex", alignItems: "center" }}>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Quick Access
