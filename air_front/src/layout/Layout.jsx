@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"; 
 import Navbar from "../component/header/Navbar";
 
 //우리가 만드는 앱의 전체 화면 구조를 잡는 역할.. 
