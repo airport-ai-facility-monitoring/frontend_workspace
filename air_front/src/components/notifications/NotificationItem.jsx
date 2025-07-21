@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function NotificationItem({ id, time, tag, text }) {
   return (
     <Link
-      to="/notifications/new"
+      to={`/notifications/${id}`}
       className="notification-item"
       style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
     >
