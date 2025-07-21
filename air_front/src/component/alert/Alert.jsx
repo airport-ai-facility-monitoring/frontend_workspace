@@ -45,19 +45,6 @@ const activityData = [
   { date: "2018/10/30 10:57:46", detail: "----------------------------" },
 ];
 
-// Navigation items for the sidebar
-const navItems = [
-  { text: "Home", icon: <HomeIcon />, selected: false },
-  { text: "Dashboard", icon: <DashboardIcon />, selected: false },
-  { text: "Alert", icon: <ErrorIcon />, selected: true },
-  { text: "Notifications", icon: <NotificationsIcon />, selected: false },
-  { text: "Anomaly", icon: <WarningIcon />, selected: false },
-  { text: "Facility", icon: <CommuteIcon />, selected: false },
-  { text: "Daily Log", icon: <DescriptionIcon />, selected: false },
-];
-
-const drawerWidth = 220;
-
 const Alert = () => {
   return (
     <Box sx={{ display: "flex", height: "100vh", bgcolor: "#f3f6fe" }}>
