@@ -11,6 +11,7 @@ import SettingsPage from "../component/settings/SettingsPage";
 import Anomaly from "../component/anomaly/Anomaly";
 import Anomalyreport from "../component/Anomalyreport/anomalyreport";
 import AnomalyReportEdit from "../component/anomalyreport/AnomalyreportEdit";
+import Facility from "../component/facility/Facility";
 
 const mainRoutes = (
   <Route path="/" element={<Layout />}>
@@ -25,6 +26,7 @@ const mainRoutes = (
     <Route path="/dashdetail" element={<DashDetail />} />
     <Route path="/anomalyreport" element={<Anomalyreport />} />
     <Route path="/anomalyreport/edit" element={<AnomalyReportEdit />} />
+    <Route path="facility" element={<Facility />} />
   </Route>
 );
 
