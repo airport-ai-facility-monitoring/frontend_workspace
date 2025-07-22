@@ -29,7 +29,7 @@ const navItems = [
   {
     text: "Notifications",
     icon: <NotificationsIcon />,
-    path: "/notifications",
+    path: "/admin/notifications",
   },
   { text: "Facility", icon: <CommuteIcon />, path: "/admin/facility" },
 ];
