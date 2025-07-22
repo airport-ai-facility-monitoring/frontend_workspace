@@ -1,6 +1,7 @@
 // src/component/settings/SettingsPage.jsx
 import React, { useState } from 'react'
 
+
 const SettingsPage = () => {
   const [showReset, setShowReset] = useState(false)
 
@@ -16,6 +17,7 @@ const SettingsPage = () => {
       fontFamily: 'sans-serif',
       color: '#1f263d'
     },
+
     header: {
       fontSize: '1.75rem',
       fontWeight: 'bold',
@@ -23,12 +25,13 @@ const SettingsPage = () => {
     },
     content: {
       display: 'flex',
-      gap: '2rem'
+      gap: '4rem',
+      alignItems :'center',
     },
     profile: {
       position: 'relative',
-      width: '150px',
-      height: '150px'
+      width: '300px',
+      height: '300px'
     },
     avatar: {
       width: '100%',
@@ -52,16 +55,17 @@ const SettingsPage = () => {
       cursor: 'pointer'
     },
     fields: {
-      flex: 1,
+      flex: 0.5,
       display: 'grid',
       gridTemplateColumns: '80px 1fr',
       rowGap: '1rem',
-      alignItems: 'center'
+      alignItems: 'center',
+      justifyContent: 'flex-end',
     },
     label: {
       textAlign: 'right',
       paddingRight: '1rem',
-      fontSize: '1rem'
+      fontSize: '0.85rem'
     },
     input: {
       background: '#e0dfe4',
@@ -74,7 +78,8 @@ const SettingsPage = () => {
     buttonRow: {
       marginTop: '2rem',
       display: 'flex',
-      gap: '1rem'
+      gap: '1rem',
+      justifyContent: 'flex-end',
     },
     btn: {
       padding: '0.75rem 1.5rem',
@@ -142,7 +147,7 @@ const SettingsPage = () => {
         <div style={styles.profile}>
           {/* Replace src with your photo URL */}
           <img
-            src="https://via.placeholder.com/150"
+            src="/karina.jpg"
             alt="avatar"
             style={styles.avatar}
           />
