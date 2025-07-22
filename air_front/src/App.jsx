@@ -6,23 +6,21 @@ import NotificationWrite from "./component/notifications/NotificationWrite";
 import Home from "./component/Home/Home";
 import Dashboard from "./component/Dashboard/Dashboard";
 import DashDetail from "./component/Dashboard/DashDetail";
-import Alert from "./component/alert/Alert";  
+import Alert from "./component/alert/Alert";
 import SettingsPage from "./component/settings/SettingsPage";
 import SignUp from "./component/Signup/singup";
 import Login from "./component/login/login";
 import Anomaly from "./component/anomaly/Anomaly";
-import Anomalyreport from './component/Anomalyreport/anomalyreport';
-import AnomalyReportEdit from './component/anomalyreport/AnomalyreportEdit'
-import UserDetail from './component/admin/UserDetail'
-import UsersList from './component/admin/UsersList'
-
-
+import Anomalyreport from "./component/Anomalyreport/anomalyreport";
+import AnomalyReportEdit from "./component/anomalyreport/AnomalyreportEdit";
+import UserDetail from "./component/admin/UserDetail";
+import UsersList from "./component/admin/UsersList";
+import AdminLayout from "./component/admin/Layout/AdminLayout";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}></Route>
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/notifications" element={<NotificationsPage />} />
@@ -40,6 +38,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="anomalyreport" element={<Anomalyreport />} />
         <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
+
+        <Route path="/admin" element={<AdminLayout />}></Route>
       </Routes>
     </Router>
   );
