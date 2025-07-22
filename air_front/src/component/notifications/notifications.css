@@ -1,8 +1,7 @@
 .notifications-container {
   padding: 2rem;
   background: #f0f4fb;
-  height: 200%;
-  overflow-y: auto;
+  height: 100%;
   width :100%;
 }
 
