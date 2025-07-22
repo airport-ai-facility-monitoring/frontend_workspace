@@ -7,6 +7,7 @@ import Dashboard from './component/Dashboard/Dashboard'
 import Alert from './component/alert/Alert';
 import SettingsPage from './component/settings/SettingsPage'
 import SignUp from './component/Signup/singup';
+import Login from './component/login/login';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />} >
         <Route path="/alert" element={<Alert/>}/>
+
+        <Route path="/login" element={<Login />} />
 
         </Route>
         <Route path="/" element={<Layout />} >
