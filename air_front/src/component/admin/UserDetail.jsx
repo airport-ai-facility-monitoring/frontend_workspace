@@ -1,64 +1,79 @@
-import React, { useState } from 'react'
+// src/components/users/UserDetail.jsx
+import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 export default function UserDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
 
-  // 예시 사용자 정보 (실제론 API로 id 기반 조회)
+  // 예시 사용자 정보 (실제론 API 호출)
   const user = {
     id,
     name: '최재윤',
     staffNo: '20193040',
     phone: '010-1234-5678',
     email: 'IMPRINCESS18@pac.co.kr',
-    avatar: 'https://via.placeholder.com/150'
+    avatar: 'https://via.placeholder.com/300x300.png?text=Avatar'
   }
 
   const styles = {
     container: {
-      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100%',
       padding: '2rem',
       background: '#f0f4fb',
       boxSizing: 'border-box',
+      fontFamily: 'sans-serif',
+      color: '#1f263d'
+    },
+    inner: {
+      width: '100%',
+      maxWidth: '700px',
+      margin: '0 auto'
     },
     back: {
       fontSize: '1.5rem',
       cursor: 'pointer',
-      marginBottom: '1rem',
+      marginBottom: '1.5rem',
       color: '#333'
     },
     card: {
-      background: 'white',
+      background: '#fff',
       borderRadius: '12px',
       padding: '2rem',
-      maxWidth: '720px',
-      margin: '0 auto',
       boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-      boxSizing: 'border-box'
+      boxSizing: 'border-box',
+      width: '800px',
+
     },
-    header: {
-      display: 'flex',
-      alignItems: 'center',
+    title: {
+      fontSize: '1.75rem',
+      fontWeight: 'bold',
+      margin: 0,
       marginBottom: '2rem'
     },
+    body: {
+      display: 'flex',
+      gap: '3rem',
+      alignItems: 'center'
+    },
     avatar: {
-      width: '120px',
-      height: '120px',
-      borderRadius: '60px',
+      width: '200px',
+      height: '200px',
+      borderRadius: '24px',       // softly rounded rectangle
       objectFit: 'cover',
-      marginRight: '2rem'
+      boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
     },
     fields: {
-      flex: 1,
       display: 'grid',
-      gridTemplateColumns: '80px 1fr',
-      rowGap: '1rem',
+      gridTemplateColumns: '100px minmax(0,1fr)',
+      columnGap: '2rem',
+      rowGap: '1.5rem',
       alignItems: 'center'
     },
     label: {
       textAlign: 'right',
-      paddingRight: '1rem',
       fontSize: '1rem'
     },
     input: {
@@ -67,7 +82,8 @@ export default function UserDetail() {
       borderRadius: '6px',
       padding: '0.75rem 1rem',
       fontSize: '0.95rem',
-      color: '#1f263d'
+      color: '#1f263d',
+      maxWidth: '350px'
     },
     btnRow: {
       marginTop: '2rem',
@@ -86,39 +102,42 @@ export default function UserDetail() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.back} onClick={() => navigate(-1)}>←</div>
-      <div style={styles.card}>
-        {/* 타이틀 */}
-        <div style={{ ...styles.header, marginBottom: '1rem' }}>
-          <h2 style={{ margin: 0 }}>{user.name}</h2>
+      <div style={styles.inner}>
+        {/* 뒤로가기 */}
+        <div style={styles.back} onClick={() => navigate(-1)}>
+          ←
         </div>
 
-        {/* 프로필 + 정보 */}
-        <div style={styles.header}>
-          <img src={user.avatar} alt="avatar" style={styles.avatar} />
-          <div style={styles.fields}>
-            <div style={styles.label}>이름</div>
-            <input style={styles.input} value={user.name} readOnly />
+        {/* 카드 */}
+        <div style={styles.card}>
+          <h2 style={styles.title}>{user.name}</h2>
 
-            <div style={styles.label}>사번</div>
-            <input style={styles.input} value={user.staffNo} readOnly />
+          <div style={styles.body}>
+            {/* Avatar */}
+            <img src={user.avatar} alt="avatar" style={styles.avatar} />
 
-            <div style={styles.label}>휴대폰번호</div>
-            <input style={styles.input} value={user.phone} readOnly />
+            {/* Info fields */}
+            <div style={styles.fields}>
+              <div style={styles.label}>이름</div>
+              <input style={styles.input} value={user.name} readOnly />
 
-            <div style={styles.label}>이메일</div>
-            <input style={styles.input} value={user.email} readOnly />
+              <div style={styles.label}>사번</div>
+              <input style={styles.input} value={user.staffNo} readOnly />
+
+              <div style={styles.label}>휴대폰번호</div>
+              <input style={styles.input} value={user.phone} readOnly />
+
+              <div style={styles.label}>이메일</div>
+              <input style={styles.input} value={user.email} readOnly />
+            </div>
           </div>
-        </div>
 
-        {/* 확인 버튼 */}
-        <div style={styles.btnRow}>
-          <button
-            style={styles.btn}
-            onClick={() => navigate(-1)}
-          >
-            확인
-          </button>
+          {/* 확인 버튼 */}
+          <div style={styles.btnRow}>
+            <button style={styles.btn} onClick={() => navigate(-1)}>
+              확인
+            </button>
+          </div>
         </div>
       </div>
     </div>
