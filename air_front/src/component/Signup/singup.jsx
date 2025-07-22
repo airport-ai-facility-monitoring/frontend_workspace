@@ -17,28 +17,28 @@ const SignUp = () => {
   const formFields = [
     {
       id: "employee-id",
-      label: "EMPLOYEE ID NUMBER",
+      label: "사번을 입력하세요",
       icon: <Badge fontSize="small" />,
     },
     {
       id: "password",
-      label: "PASSWORD",
+      label: "비밀번호를 입력하세요",
       icon: <Lock fontSize="small" />,
       type: "password",
     },
     {
       id: "name",
-      label: "NAME",
+      label: "이름을 입력하세요",
       icon: <Person fontSize="small" />,
     },
     {
       id: "phone",
-      label: "PHONE NUMBER",
+      label: "휴대번호를 입력하세요",
       icon: <Phone fontSize="small" />,
     },
     {
       id: "email",
-      label: "E-MAIL",
+      label: "E-MAIL을 입력하세요",
       icon: <Email fontSize="small" />,
       type: "email",
     },

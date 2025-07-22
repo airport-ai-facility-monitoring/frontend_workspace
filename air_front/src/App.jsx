@@ -15,18 +15,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />} >
         <Route path="/alert" element={<Alert/>}/>
-
-        <Route path="/login" element={<Login />} />
-
         </Route>
         <Route path="/" element={<Layout />} >
-        <Route path="/signup" element={<SignUp />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/notifications/:id" element={<NotificationDetail />} />
         <Route path="notifications/new" element={<NotificationWrite />} />
         <Route path="dash" element={<Dashboard />} />
         <Route path="settings" element={<SettingsPage />} />
         </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
