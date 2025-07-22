@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const dummyLogs = [
   { date: '2018/10/02 10:57:46', detail: '2번 활주로 FOD 감지' },
@@ -16,6 +17,16 @@ const dummyLogs = [
 const DashDetail = () => {
   return (
     <Box sx={{ p: 4 }}>
+
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+        <Button
+          startIcon={<ArrowBackIcon />}
+          onClick={() => window.history.back()}
+          sx={{ textTransform: 'none' }}
+        >
+          뒤로가기
+        </Button>
+      </Box>
       {/* 상단 타이틀 */}
       <Typography variant="h6" color="text.secondary" sx={{ mb: 2 }}>
         제2활주로
