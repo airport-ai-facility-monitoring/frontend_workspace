@@ -9,7 +9,8 @@ import Alert from './component/alert/Alert';
 import SettingsPage from './component/settings/SettingsPage'
 import SignUp from './component/Signup/singup';
 import Login from './component/login/login';
-
+import Anomalyreport from './component/Anomalyreport/anomalyreport';
+import AnomalyReportEdit from './component/anomalyreport/AnomalyreportEdit'
 function App() {
   return (
     <Router>
@@ -27,6 +28,8 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="anomalyreport" element={<Anomalyreport />} />
+        <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
       </Routes>
     </Router>
   );
