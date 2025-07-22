@@ -27,9 +27,9 @@ const navItems = [
   { text: "Dashboard", icon: <DashboardIcon />, path: "/dash" },
   { text: "Alert", icon: <ErrorIcon />, path: "/alert" },
   { text: "Notifications", icon: <NotificationsIcon />, path: "/notifications" },
-  { text: "Anomaly", icon: <WarningIcon />, path: "/Anomaly" },
-  { text: "Facility", icon: <CommuteIcon />, path: "/Facility" },
-  { text: "Daily Log", icon: <DescriptionIcon />, path: "/DailyLog" },
+  { text: "Anomaly", icon: <WarningIcon />, path: "/anomaly" },
+  { text: "Facility", icon: <CommuteIcon />, path: "/facility" },
+  { text: "Daily Log", icon: <DescriptionIcon />, path: "/dailyLog" },
 ];
 
 const Side = ({ open, setOpen }) => {
