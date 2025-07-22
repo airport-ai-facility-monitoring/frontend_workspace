@@ -3,6 +3,7 @@ import Layout from './layout/Layout';
 import NotificationsPage from './component/notifications/NotificationsPage'  
 import NotificationDetail from './component/notifications/NotificationDetail'
 import NotificationWrite from './component/notifications/NotificationWrite'
+import Home from './component/Home/Home'
 import Dashboard from './component/Dashboard/Dashboard'
 import Alert from './component/alert/Alert';
 import SettingsPage from './component/settings/SettingsPage'
@@ -14,14 +15,15 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />} >
-        <Route path="/alert" element={<Alert/>}/>
         </Route>
         <Route path="/" element={<Layout />} >
+        <Route path="/home" element={<Home />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/notifications/:id" element={<NotificationDetail />} />
         <Route path="notifications/new" element={<NotificationWrite />} />
-        <Route path="dash" element={<Dashboard />} />
-        <Route path="settings" element={<SettingsPage />} />
+        <Route path="/alert" element={<Alert/>}/>
+        <Route path="/dash" element={<Dashboard />} />
+        <Route path="/settings" element={<SettingsPage />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />

@@ -16,14 +16,6 @@ const MainHomeMg = () => {
   return (
     <Box sx={{ display: "flex", height: "100vh", bgcolor: "#f3f6fe" }}>
       <Box sx={{ flexGrow: 1, overflow: "auto", width: "100%" }}>
-        {/* 상단바 */}
-        <AppBar position="static" elevation={0} sx={{ bgcolor: "white" }}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
 
         {/* Breadcrumb */}
         <Box sx={{ px: 3, py: 2, display: "flex", alignItems: "center" }}>
@@ -42,14 +34,13 @@ const MainHomeMg = () => {
 
         {/* 메인 콘텐츠 */}
         <Box sx={{ px: 2 }}>
-          {/* 상단: 좌측 박스 + 우측 카드 3개 */}
-          <Grid container spacing={5}>
-            {/* 왼쪽 박스 (크기 증가됨) */}
-            <Grid item xs={16} md={8}>
+          <Grid container spacing={2}>
+            {/* 왼쪽 큰 박스 */}
+            <Grid item xs={12} md={8}>
               <Paper
                 sx={{
                   height: 200,
-                  width: 500, // ✅ 높이 증가
+                  width: 500,
                   p: 20,
                   display: "flex",
                   justifyContent: "center",
@@ -59,53 +50,50 @@ const MainHomeMg = () => {
               >
                 <Typography variant="h6">왼쪽 상단 박스 (예: 차트/지도)</Typography>
               </Paper>
-            </Grid>
 
-            {/* 오른쪽 세로 카드 */}
-            <Grid item xs={12} md={4}>
-              <Stack spacing={4} sx={{ height: 500 }}> {/* ✅ Stack 높이도 맞춤 */}
-                {[1, 2, 3].map((item) => (
-                  <Paper
-                    key={item}
-                    sx={{
-                      flex: 1,
-                      p: 8,
-                      bgcolor: "#fefefe",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography variant="body2">오른쪽 카드 {item}</Typography>
-                  </Paper>
+              {/* 아래 3 x 2 박스 */}
+              <Grid container spacing={2} sx={{ mt: 2 }}>
+                {Array.from({ length: 6 }).map((_, idx) => (
+                  <Grid item xs={12} sm={6} md={4} key={idx}>
+                    <Paper
+                      sx={{
+                        height: 200,
+                        width: 150,
+                        bgcolor: "#fff",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Typography variant="body2">빈 박스 {idx + 1}</Typography>
+                    </Paper>
+                  </Grid>
                 ))}
-              </Stack>
-            </Grid>
-          </Grid>
-
-          {/* 하단 3개 카드: 날씨, 공지사항, 알림 로그 */}
-          <Grid container spacing={4} sx={{ mt: 4 }}>
-            {[
-              { title: "날씨", desc: "연결된 날씨가 여기에 표시됩니다." },
-              { title: "공지사항", desc: "연결된 공지사항이 여기에 표시됩니다." },
-              { title: "알림 로그", desc: "연결된 알림 로그가 여기에 표시됩니다." },
-            ].map((card, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <Paper sx={{ height: 100, p: 4 }}>
-                  <Box
-                    sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
-                  >
-                    <Typography variant="h6">{card.title}</Typography>
-                    <IconButton size="small">
-                      <MoreVertIcon />
-                    </IconButton>
-                  </Box>
-                  <Typography variant="body2" color="textSecondary">
-                    {card.desc}
-                  </Typography>
-                </Paper>
               </Grid>
-            ))}
+            </Grid>
+
+            {/* 오른쪽: 알림 로그만 단독 표시 */}
+            <Grid item xs={12} md={4}>
+              <Paper
+                sx={{
+                  height: 500,
+                  p: 3,
+                  bgcolor: "#fefefe",
+                }}
+              >
+                <Box
+                  sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
+                >
+                  <Typography variant="h6">알림 로그</Typography>
+                  <IconButton size="small">
+                    <MoreVertIcon />
+                  </IconButton>
+                </Box>
+                <Typography variant="body2" color="textSecondary">
+                  연결된 알림 로그가 여기에 표시됩니다.
+                </Typography>
+              </Paper>
+            </Grid>
           </Grid>
         </Box>
       </Box>

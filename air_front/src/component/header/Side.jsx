@@ -23,7 +23,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const drawerWidth = 220;
 
 const navItems = [
-  { text: "Home", icon: <HomeIcon />, path: "/" },
+  { text: "Home", icon: <HomeIcon />, path: "/home" },
   { text: "Dashboard", icon: <DashboardIcon />, path: "/dash" },
   { text: "Alert", icon: <ErrorIcon />, path: "/alert" },
   { text: "Notifications", icon: <NotificationsIcon />, path: "/notifications" },
