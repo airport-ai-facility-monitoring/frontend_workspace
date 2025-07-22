@@ -5,6 +5,7 @@ import NotificationDetail from './component/notifications/NotificationDetail'
 import NotificationWrite from './component/notifications/NotificationWrite'
 import Dashboard from './component/Dashboard/Dashboard'
 import Alert from './component/alert/Alert';
+import SignUp from './component/Signup/singup';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
         </Route>
         <Route path="/" element={<Layout />} >
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/notifications" element={<NotificationsPage />} />
         <Route path="/notifications/:id" element={<NotificationDetail />} />
         <Route path="notifications/new" element={<NotificationWrite />} />

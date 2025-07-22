@@ -41,14 +41,15 @@ const MainHomeMg = () => {
         </Box>
 
         {/* 메인 콘텐츠 */}
-        <Box sx={{ px: 3 }}>
+        <Box sx={{ px: 2 }}>
           {/* 상단: 좌측 박스 + 우측 카드 3개 */}
-          <Grid container spacing={2}>
+          <Grid container spacing={5}>
             {/* 왼쪽 박스 (크기 증가됨) */}
             <Grid item xs={16} md={8}>
               <Paper
                 sx={{
-                  height: 200, // ✅ 높이 증가
+                  height: 200,
+                  width: 500, // ✅ 높이 증가
                   p: 20,
                   display: "flex",
                   justifyContent: "center",
@@ -62,7 +63,7 @@ const MainHomeMg = () => {
 
             {/* 오른쪽 세로 카드 */}
             <Grid item xs={12} md={4}>
-              <Stack spacing={2} sx={{ height: 550 }}> {/* ✅ Stack 높이도 맞춤 */}
+              <Stack spacing={4} sx={{ height: 500 }}> {/* ✅ Stack 높이도 맞춤 */}
                 {[1, 2, 3].map((item) => (
                   <Paper
                     key={item}
@@ -83,14 +84,14 @@ const MainHomeMg = () => {
           </Grid>
 
           {/* 하단 3개 카드: 날씨, 공지사항, 알림 로그 */}
-          <Grid container spacing={2} sx={{ mt: 2 }}>
+          <Grid container spacing={4} sx={{ mt: 4 }}>
             {[
               { title: "날씨", desc: "연결된 날씨가 여기에 표시됩니다." },
               { title: "공지사항", desc: "연결된 공지사항이 여기에 표시됩니다." },
               { title: "알림 로그", desc: "연결된 알림 로그가 여기에 표시됩니다." },
             ].map((card, index) => (
               <Grid item xs={12} md={4} key={index}>
-                <Paper sx={{ height: 200, p: 2 }}>
+                <Paper sx={{ height: 100, p: 4 }}>
                   <Box
                     sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
                   >
