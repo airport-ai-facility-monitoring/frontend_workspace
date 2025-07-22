@@ -13,8 +13,8 @@ import Login from "./component/login/login";
 import Anomaly from "./component/anomaly/Anomaly";
 import Anomalyreport from './component/Anomalyreport/anomalyreport';
 import AnomalyReportEdit from './component/anomalyreport/AnomalyreportEdit'
-import UserDetail from './component/admin/UserDetail'
 import UsersList from './component/admin/UsersList'
+import UserDetail from './component/admin/UserDetail'
 
 
 
@@ -35,11 +35,11 @@ function App() {
           <Route path="/dashdetail" element={<DashDetail />} />
           <Route path="/anomalyreport" element={<Anomalyreport />} />
           <Route path="/anomalyreport/edit" element={<AnomalyReportEdit />} />
+          <Route path="admin/users"        element={<UsersList />} />
+          <Route path="admin/users/:id"    element={<UserDetail />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="anomalyreport" element={<Anomalyreport />} />
-        <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
       </Routes>
     </Router>
   );
