@@ -15,6 +15,7 @@ import Anomalyreport from './component/Anomalyreport/anomalyreport';
 import AnomalyReportEdit from './component/anomalyreport/AnomalyreportEdit'
 import UserDetail from './component/admin/UserDetail'
 import UsersList from './component/admin/UsersList'
+import AdminHome from './component/admin/AdminHome'
 
 
 
@@ -22,7 +23,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Layout />}></Route>
+        <Route path="/admin/home" element={<AdminHome />} >
+        </Route>
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/notifications" element={<NotificationsPage />} />
