@@ -13,6 +13,11 @@ import Login from "./component/login/login";
 import Anomaly from "./component/anomaly/Anomaly";
 import Anomalyreport from './component/Anomalyreport/anomalyreport';
 import AnomalyReportEdit from './component/anomalyreport/AnomalyreportEdit'
+import UserDetail from './component/admin/UserDetail'
+import UsersList from './component/admin/UsersList'
+
+
+
 function App() {
   return (
     <Router>
@@ -33,6 +38,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="anomalyreport" element={<Anomalyreport />} />
         <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
+        <Route path="admin/users"        element={<UsersList />} />
+        <Route path="admin/users/:id"    element={<UserDetail />} />
+        <Route path="*"                  element={<Navigate to="notifications" replace />} />
       </Routes>
     </Router>
   );
