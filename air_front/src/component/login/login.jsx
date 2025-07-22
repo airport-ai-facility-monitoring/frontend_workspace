@@ -1,6 +1,7 @@
 import React from "react";
 import Badge from "@mui/icons-material/Badge";
 import Lock from "@mui/icons-material/Lock";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -11,6 +12,8 @@ import {
 } from "@mui/material";
 
 const Login = () => {
+  const navigate = useNavigate(); // ✅ 페이지 이동을 위한 Hook
+
   return (
     <Box
       sx={{
@@ -175,6 +178,7 @@ const Login = () => {
             }}
           />
 
+          {/* LOGIN 버튼 */}
           <Button
             variant="contained"
             fullWidth
@@ -195,9 +199,11 @@ const Login = () => {
             LOGIN
           </Button>
 
+          {/* ✅ SIGN UP 버튼 - 클릭 시 /signup 이동 */}
           <Button
             variant="contained"
             fullWidth
+            onClick={() => navigate("/signup")} // ✅ 여기에 이동 추가
             sx={{
               bgcolor: "white",
               color: "#2148c0",

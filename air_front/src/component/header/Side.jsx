@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Drawer,
   Box,
@@ -8,6 +9,7 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
+import { useNavigate, useLocation } from "react-router-dom"; // ✅ 추가
 import HomeIcon from "@mui/icons-material/Home";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ErrorIcon from "@mui/icons-material/Error";
@@ -21,32 +23,34 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const drawerWidth = 220;
 
 const navItems = [
-  { text: "Home", icon: <HomeIcon />, selected: false },
-  { text: "Dashboard", icon: <DashboardIcon />, selected: false },
-  { text: "Alert", icon: <ErrorIcon />, selected: true },
-  { text: "Notifications", icon: <NotificationsIcon />, selected: false },
-  { text: "Anomaly", icon: <WarningIcon />, selected: false },
-  { text: "Facility", icon: <CommuteIcon />, selected: false },
-  { text: "Daily Log", icon: <DescriptionIcon />, selected: false },
+  { text: "Home", icon: <HomeIcon />, path: "/" },
+  { text: "Dashboard", icon: <DashboardIcon />, path: "/dash" },
+  { text: "Alert", icon: <ErrorIcon />, path: "/alert" },
+  { text: "Notifications", icon: <NotificationsIcon />, path: "/notifications" },
+  { text: "Anomaly", icon: <WarningIcon />, path: "/Anomaly" },
+  { text: "Facility", icon: <CommuteIcon />, path: "/Facility" },
+  { text: "Daily Log", icon: <DescriptionIcon />, path: "/DailyLog" },
 ];
 
 const Side = ({ open, setOpen }) => {
+  const navigate = useNavigate();
+  const location = useLocation(); // ✅ 현재 URL 경로 확인
+
   return (
     <Drawer
-  variant="persistent"
-  open={open}
-  sx={{
-    flexShrink: 0,
-    "& .MuiDrawer-paper": {
-      width: open ? drawerWidth : 0,
-      boxSizing: "border-box",
-      bgcolor: "#1f263d",
-      color: "white",
-      overflowX: "hidden",
-    },
-  }}
->
-
+      variant="persistent"
+      open={open}
+      sx={{
+        flexShrink: 0,
+        "& .MuiDrawer-paper": {
+          width: open ? drawerWidth : 0,
+          boxSizing: "border-box",
+          bgcolor: "#1f263d",
+          color: "white",
+          overflowX: "hidden",
+        },
+      }}
+    >
       <Box sx={{ p: 2, height: 70, display: "flex", alignItems: "center" }}>
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Quick Access
@@ -54,29 +58,40 @@ const Side = ({ open, setOpen }) => {
       </Box>
 
       <List>
-        {navItems.map((item) => (
-          <ListItem
-            button
-            key={item.text}
-            sx={{
-              height: 40,
-              bgcolor: item.selected ? "rgba(255, 255, 255, 0.08)" : "transparent",
-              "&:hover": { bgcolor: "rgba(255, 255, 255, 0.12)" },
-            }}
-            onClick={() => {}}
-          >
-            <ListItemIcon sx={{ color: "white", minWidth: 40 }}>
-              {item.icon}
-            </ListItemIcon>
-            <ListItemText
-              primary={item.text}
-              primaryTypographyProps={{
-                fontSize: 13,
-                opacity: item.selected ? 1 : 0.65,
+        {navItems.map((item) => {
+          const selected = location.pathname === item.path; // ✅ 현재 경로와 일치하는지 확인
+          return (
+            <ListItem
+              button
+              key={item.text}
+              onClick={() => navigate(item.path)}
+              sx={{
+                height: 40,
+                bgcolor: selected ? "rgba(255,255,255,0.1)" : "transparent",
+                "&:hover": {
+                  bgcolor: "rgba(255, 255, 255, 0.12)",
+                },
               }}
-            />
-          </ListItem>
-        ))}
+            >
+              <ListItemIcon
+                sx={{
+                  color: selected ? "#90caf9" : "white", // ✅ 아이콘 색 강조
+                  minWidth: 40,
+                }}
+              >
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.text}
+                primaryTypographyProps={{
+                  fontSize: 13,
+                  fontWeight: selected ? "bold" : "normal", // ✅ 글자 강조
+                  opacity: selected ? 1 : 0.7,
+                }}
+              />
+            </ListItem>
+          );
+        })}
       </List>
 
       <Divider sx={{ bgcolor: "rgba(255, 255, 255, 0.12)", my: 2 }} />
@@ -89,7 +104,7 @@ const Side = ({ open, setOpen }) => {
       </Typography>
 
       <List>
-        <ListItem button onClick={() => {}}>
+        <ListItem button onClick={() => navigate("/settings")}>
           <ListItemIcon sx={{ color: "white", minWidth: 40 }}>
             <SettingsIcon />
           </ListItemIcon>
@@ -106,7 +121,7 @@ const Side = ({ open, setOpen }) => {
       <Box sx={{ flexGrow: 1 }} />
 
       <List sx={{ marginTop: "auto" }}>
-        <ListItem button onClick={() => {}}>
+        <ListItem button onClick={() => navigate("/logout")}>
           <ListItemIcon sx={{ color: "white", minWidth: 40 }}>
             <LogoutIcon />
           </ListItemIcon>
