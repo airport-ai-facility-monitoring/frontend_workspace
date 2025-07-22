@@ -6,7 +6,7 @@ import NotificationWrite from "./component/notifications/NotificationWrite";
 import Home from "./component/Home/Home";
 import Dashboard from "./component/Dashboard/Dashboard";
 import DashDetail from "./component/Dashboard/DashDetail";
-import Alert from "./component/alert/Alert";
+import Alert from "./component/alert/Alert";  
 import SettingsPage from "./component/settings/SettingsPage";
 import SignUp from "./component/Signup/singup";
 import Login from "./component/login/login";
@@ -32,15 +32,14 @@ function App() {
           <Route path="/dash" element={<Dashboard />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/anomaly" element={<Anomaly />} />
-          <Route path="dashdetail" element={<DashDetail />} />
+          <Route path="/dashdetail" element={<DashDetail />} />
+          <Route path="/anomalyreport" element={<Anomalyreport />} />
+          <Route path="/anomalyreport/edit" element={<AnomalyReportEdit />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="anomalyreport" element={<Anomalyreport />} />
         <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
-        <Route path="admin/users"        element={<UsersList />} />
-        <Route path="admin/users/:id"    element={<UserDetail />} />
-        <Route path="*"                  element={<Navigate to="notifications" replace />} />
       </Routes>
     </Router>
   );
