@@ -3,7 +3,7 @@ import Layout from './layout/Layout';
 import NotificationsPage from './components/notifications/NotificationsPage'  
 import NotificationDetail from './components/notifications/NotificationDetail'
 import NotificationWrite from './components/notifications/NotificationWrite'
-import Dashboard from './components/Dashboard/Dashboard'
+import Dashboard from './component/Dashboard/Dashboard'
 import Alert from './component/alert/Alert';
 
 function App() {
