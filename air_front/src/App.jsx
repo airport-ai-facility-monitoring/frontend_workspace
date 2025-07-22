@@ -25,6 +25,8 @@ function App() {
           <Route path="/alert" element={<Alert />} />
           <Route path="/dash" element={<Dashboard />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/anomaly" element={<Anomaly />} />
+          <Route path="dashdetail" element={<DashDetail />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
