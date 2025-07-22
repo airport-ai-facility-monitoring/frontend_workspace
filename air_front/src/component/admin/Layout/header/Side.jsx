@@ -24,14 +24,14 @@ import PeopleIcon from "@mui/icons-material/People";
 const drawerWidth = 220;
 
 const navItems = [
-  { text: "Home", icon: <HomeIcon />, path: "/home" },
-  { text: "Management", icon: <PeopleIcon />, path: "/management" },
+  { text: "Home", icon: <HomeIcon />, path: "/admin/home" },
+  { text: "Management", icon: <PeopleIcon />, path: "/admin/management" },
   {
     text: "Notifications",
     icon: <NotificationsIcon />,
     path: "/notifications",
   },
-  { text: "Facility", icon: <CommuteIcon />, path: "/facility" },
+  { text: "Facility", icon: <CommuteIcon />, path: "/admin/facility" },
 ];
 
 const Side = ({ open, setOpen }) => {

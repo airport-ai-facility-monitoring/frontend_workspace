@@ -16,8 +16,6 @@ import AnomalyReportEdit from "./component/anomalyreport/AnomalyreportEdit";
 
 import AdminHome from "./component/admin/AdminHome";
 
-import Anomalyreport from "./component/Anomalyreport/anomalyreport";
-import AnomalyReportEdit from "./component/anomalyreport/AnomalyreportEdit";
 import UserDetail from "./component/admin/UserDetail";
 import UsersList from "./component/admin/UsersList";
 import AdminLayout from "./component/admin/Layout/AdminLayout";
@@ -26,7 +24,6 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/admin/home" element={<AdminHome />}></Route>
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/notifications" element={<NotificationsPage />} />
@@ -45,7 +42,9 @@ function App() {
         <Route path="anomalyreport" element={<Anomalyreport />} />
         <Route path="anomalyreport/edit" element={<AnomalyReportEdit />} />
 
-        <Route path="/admin" element={<AdminLayout />}></Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="home" element={<AdminHome />} />
+        </Route>
       </Routes>
     </Router>
   );
